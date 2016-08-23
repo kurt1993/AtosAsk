@@ -14,48 +14,30 @@
         </div>
     </div>
     <br/>
-    <div class="table-responsive">
-        <table class="jh-table table table-striped">
-            <thead>
-                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="title"><span translate="askAtosApp.ask.title">Title</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="content"><span translate="askAtosApp.ask.content">Content</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tags"><span translate="askAtosApp.ask.tags">Tags</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="ask in vm.asks track by ask.id">
-                    <td><a ui-sref="ask-detail({id:ask.id})">{{ask.id}}</a></td>
-                    <td>{{ask.title}}</td>
-                    <td>{{ask.content}}</td>
-                    <td>{{ask.tags}}</td>
-                    <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="ask-detail({id:ask.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="ask.edit({id:ask.id})"
-                                    class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="ask.delete({id:ask.id})"
-                                    class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div>
+        <div ng-repeat="ask in vm.asks track by ask.id">
+            <span ng-bind-html="ask.title">{{ask.title}}</span>
+            <div>
+                <span froala-view="ask.content"></span><br>
+            </div>
+            <!--<td>{{ask.tags}}</td>-->
+            <div class="btn-group">
+                <button type="submit"
+                        ui-sref="ask-detail({id:ask.id})" class="btn btn-info btn-sm">
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                </button>
+                <button type="submit"
+                        ui-sref="ask.edit({id:ask.id})" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+                <button type="submit"
+                        ui-sref="ask.delete({id:ask.id})" class="btn btn-danger btn-sm">
+                    <span class="glyphicon glyphicon-remove-circle"></span>
+                </button>
+            </div>
+
+        </div>
+        </tbody>
     </div>
     <div class="text-center">
         <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>

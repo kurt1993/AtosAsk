@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span translate="askAtosApp.ask.detail.title">Ask</span> {{vm.ask.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="askAtosApp.ask.title">Title</span></dt>
+        <dd>
+            <span>{{vm.ask.title}}</span>
+        </dd>
+        <dt><span translate="askAtosApp.ask.content">Content</span></dt>
+        <dd>
+            <span>{{vm.ask.content}}</span>
+        </dd>
+        <dt><span translate="askAtosApp.ask.tags">Tags</span></dt>
+        <dd>
+            <span>{{vm.ask.tags}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="ask-detail.edit({id:vm.ask.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,24 @@
+{
+    "askAtosApp": {
+        "ask" : {
+            "home": {
+                "title": "Asks",
+                "createLabel": "Créer un nouveau Ask",
+                "createOrEditLabel": "Créer ou éditer un Ask",
+                "search": "Recherche pour Ask"
+            },
+            "created": "Un nouveau Ask a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Ask avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Ask avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Ask {{ id }} ?"
+            },
+            "detail": {
+                "title": "Ask"
+            },
+            "title": "Title",
+            "content": "Content",
+            "tags": "Tags"
+        }
+    }
+}

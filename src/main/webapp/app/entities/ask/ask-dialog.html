@@ -1,0 +1,64 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myAskLabel" translate="askAtosApp.ask.home.createOrEditLabel">Create or edit a Ask</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.ask.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.ask.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="askAtosApp.ask.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="vm.ask.title"
+                    required ng-maxlength="150" />
+            <div ng-show="editForm.title.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.title.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.title.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="150">
+                    This field cannot be longer than 150 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="askAtosApp.ask.content" for="field_content">Content</label>
+            <textarea froala  name="content" id="field_content"
+                    ng-model="vm.ask.content"
+                     ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="askAtosApp.ask.tags" for="field_tags">Tags</label>
+            <input type="text" class="form-control" name="tags" id="field_tags"
+                    ng-model="vm.ask.tags"
+                    required ng-maxlength="50" />
+            <div ng-show="editForm.tags.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.tags.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.tags.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

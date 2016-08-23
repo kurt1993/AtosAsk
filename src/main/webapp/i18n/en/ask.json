@@ -1,0 +1,24 @@
+{
+    "askAtosApp": {
+        "ask" : {
+            "home": {
+                "title": "Asks",
+                "createLabel": "Create a new Ask",
+                "createOrEditLabel": "Create or edit a Ask",
+                "search": "Search for Ask"
+            },
+            "created": "A new Ask is created with identifier {{ param }}",
+            "updated": "A Ask is updated with identifier {{ param }}",
+            "deleted": "A Ask is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Ask {{ id }}?"
+            },
+            "detail": {
+                "title": "Ask"
+            },
+            "title": "Title",
+            "content": "Content",
+            "tags": "Tags"
+        }
+    }
+}

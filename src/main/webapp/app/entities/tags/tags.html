@@ -1,0 +1,48 @@
+<div>
+    <h2 translate="askAtosApp.tags.home.title">Tags</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="tags.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="askAtosApp.tags.home.createLabel">
+                        Create new Tags
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+<div class="col-md-12">
+    <div class="row">
+                <div ng-repeat="tags in vm.tags track by tags.id" >
+                        <div class="col-md-4">
+                            <div class="card text-xs-center" >
+                    <div class="card-header">
+
+                    {{tags.libele}}
+                    </div>
+                    <div class="card-block" align="justify" style="font-size:12px">
+                        <div class="excerpt">
+                        {{tags.description}}
+                        </div>
+                        <button type="submit"
+                                ui-sref="tags-detail({id:tags.id})"
+                                class="btn btn-outline-success" style="height:10%;width:100%;font-size:12px">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            Voir les questions
+                        </button>
+                    </div>
+                    <div class="card-footer text-muted">{{tags.domaine}}</div>
+
+                </div>
+                </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+</div>

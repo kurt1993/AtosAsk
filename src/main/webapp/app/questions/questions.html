@@ -1,0 +1,28 @@
+<div>
+
+            <div ng-repeat="question in vm.questions">
+
+                    <md-content class="md-padding" layout="row" style="margin-left: 250px">
+                        <div flex flex-gt-xs="70">
+                        <md-list-item class="md-3-line" ng-click="null">
+                            <img ng-src="bower_components/bootstrap/dist/img/boy.png" class="md-avatar" alt="{{item.who}}" />
+                            <div class="md-list-item-text" layout="column">
+                                <h3 style="font-weight: bold">{{question.titre}}</h3>
+                                <h4>{{question.contenue }}</h4>
+                                <p style="font-weight: bold">{{question.tags}}</p>
+                            </div>
+                        </md-list-item></div>
+                    </md-content>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-center">
+
+    <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+    <uib-pagination class="pagination pagination-lg" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+</div>
+
+
+</div>

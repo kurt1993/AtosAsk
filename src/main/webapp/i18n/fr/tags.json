@@ -1,0 +1,24 @@
+{
+    "askAtosApp": {
+        "tags" : {
+            "home": {
+                "title": "Tags",
+                "createLabel": "Créer un nouveau Tags",
+                "createOrEditLabel": "Créer ou éditer un Tags",
+                "search": "Recherche pour Tags"
+            },
+            "created": "Un nouveau Tags a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Tags avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Tags avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Tags {{ id }} ?"
+            },
+            "detail": {
+                "title": "Tags"
+            },
+            "libele": "Libele",
+            "description": "Description",
+            "domaine": "Domaine"
+        }
+    }
+}

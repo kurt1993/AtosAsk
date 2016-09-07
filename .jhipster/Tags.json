@@ -1,0 +1,27 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "libele",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "domaine",
+            "fieldType": "String"
+        }
+    ],
+    "dto": "mapstruct",
+    "service": "no",
+    "entityTableName": "tags",
+    "pagination": "infinite-scroll"
+}

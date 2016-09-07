@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span translate="askAtosApp.tags.detail.title">Tags</span> {{vm.tags.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="askAtosApp.tags.libele">Libele</span></dt>
+        <dd>
+            <span>{{vm.tags.libele}}</span>
+        </dd>
+        <dt><span translate="askAtosApp.tags.description">Description</span></dt>
+        <dd>
+            <span>{{vm.tags.description}}</span>
+        </dd>
+        <dt><span translate="askAtosApp.tags.domaine">Domaine</span></dt>
+        <dd>
+            <span>{{vm.tags.domaine}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="tags-detail.edit({id:vm.tags.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

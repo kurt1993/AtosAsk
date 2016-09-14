@@ -1,6 +1,6 @@
 (function() {
     angular.module('askAtosApp')
-           .service('Questions', Questions);
+           .factory('Questions', Questions);
 
     Questions.$inject = ['$resource'];
 

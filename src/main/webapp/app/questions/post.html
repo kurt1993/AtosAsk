@@ -1,0 +1,42 @@
+<form name="add" role="form" novalidate ng-submit="vm.save()" show-validation>
+<div>
+    <div class="form-group">
+        <label class="control-label" for="titre">Titre</label>
+        <input type="text" class="form-group" name="titre" id="titre"
+        ng.model="vm.questions.titre"/>
+        <div ng-show="editForm.titre.$invalid">
+            <p class="help-block"
+               ng-show="editForm.title.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="contenue">Contenue</label>
+        <textarea froala  name="contenue" id="contenue"
+                  ng-model="vm.questions.contenue"
+        ></textarea>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="tags">Tags</label>
+        <input type="text" class="form-control" name="tags" id="tags"
+               ng-model="vm.questions.tags"/>
+        <div ng-show="editForm.tags.$invalid">
+            <p class="help-block"
+               ng-show="editForm.tags.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+</div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Poster la question</span>
+        </button>
+    </div>
+
+</form>

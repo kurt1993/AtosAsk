@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import com.atos.askatos.repository.QuestionsRepository;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -34,22 +35,39 @@ public class QuestionsResource {
     @Inject
     private QuestionsRepository questionsRepository;
 
+    /**Create**/
+
+    @RequestMapping(value = "/questions",
+        method = RequestMethod.POST,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Questions> createQuestions(@Valid @RequestBody Questions questions) throws URISyntaxException {
+        log.debug("REST request to save Questions : {}", questions);
+        if (questions.getId() != null){
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("Questions", "idexists", "A new questions cannot already have an ID")).body(null);
+        }
+            Questions result = questionsRepository.save(questions);
+            return ResponseEntity.created(new URI("/api/questions/" + result.getId()))
+                .headers(HeaderUtil.createEntityCreationAlert("questions", result.getId().toString()))
+                .body(result);
+    }
+
     /** UPDATE **/
 
-//    @RequestMapping(value = "/questions",
-//        method = RequestMethod.PUT,
-//        produces = MediaType.APPLICATION_JSON_VALUE)
-//    @Timed
-//    public ResponseEntity<Questions> updateQuestionsResponseEntity(@RequestBody Questions questions) throws URISyntaxException{
-//        log.debug("REST request to update Questions : {}", questions);
-//        if (questions.getId() == null){
-//            return createQuestions(questions);
-//        }
-//        Questions result = questionsRepository.save(questions);
-//        return ResponseEntity.ok()
-//            .headers(HeaderUtil.createEntityUpdateAlert("questions", questions.getId().toString()))
-//            .body(result);
-//    }
+    @RequestMapping(value = "/questions",
+        method = RequestMethod.PUT,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Questions> updateQuestions(@Valid @RequestBody Questions questions) throws URISyntaxException{
+        log.debug("REST request to update Questions : {}", questions);
+        if (questions.getId() == null){
+            return createQuestions(questions);
+        }
+        Questions result = questionsRepository.save(questions);
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert("questions", questions.getId().toString()))
+            .body(result);
+    }
 
                                 /** Pagination**/
 
@@ -79,6 +97,18 @@ public class QuestionsResource {
                 result,
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    /**DELETE**/
+
+    @RequestMapping(value = "/questions/{id}",
+        method = RequestMethod.DELETE,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Void> deleteQuestions(@PathVariable String id) {
+        log.debug("REST request to delete Questions : {}", id);
+        questionsRepository.delete(id);
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("questions", id.toString())).build();
     }
 
 }

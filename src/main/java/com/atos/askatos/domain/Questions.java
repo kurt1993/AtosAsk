@@ -3,10 +3,13 @@ package com.atos.askatos.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * Created by Kurt Russell LOKO on 31/08/2016.

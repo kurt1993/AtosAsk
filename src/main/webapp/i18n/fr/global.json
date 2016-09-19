@@ -4,8 +4,21 @@
         "browsehappy": "Vous utilisez un <strong>ancien</strong> navigateur. Veuillez <a href=\"http://browsehappy.com/?locale=fr\">mettre à jour votre navigateur</a> pour une meilleure expérience.",
         "menu": {
             "home": "Accueil",
-            "questions": "Questions",
-            "post": "Post",
+            "forum": {
+                "main": "Forum",
+                "questions": "Questions",
+                "post": "Poser une question"
+            },
+            "amelioration": {
+                "main": "Améliorations des services",
+                "propositions": "Propositions"
+            },
+            "documentation": {
+                "main": "Documentation",
+                "cours": "Cours",
+                "formations": "Formations",
+                "exposé": "Exposés"
+            },
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entités",

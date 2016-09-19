@@ -9,7 +9,7 @@
             </button>
             <a class="navbar-brand logo" href="#/" ng-click="vm.collapseNavbar()">
                 <img class="logo-img" src="content/images/logo-jhipster.png"/>
-                <span translate="global.title">AskAtos</span> <span class="navbar-version">v{{VERSION}}</span>
+                <span translate="global.title">AskAtos</span>
             </a>
         </div>
         <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
@@ -20,6 +20,87 @@
                         <span class="hidden-sm" translate="global.menu.home">Home</span>
                     </a>
                 </li>
+                <li ng-class="{active: vm.$state.includes('forum')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="forum-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-bullhorn"></span>
+                            <span class="hidden-sm" translate="global.menu.forum.main">
+                                Forum
+                            </span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="questions" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>
+                                <span translate="global.menu.forum.questions">Questions</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="post" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>
+                                <span translate="global.menu.forum.post">Poser une question</span>
+                            </a>
+                        </li>
+                        <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                    </ul>
+                </li>
+
+                <li ng-class="{active: vm.$state.includes('amelioration')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="amelioration-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-wrench"></span>
+                            <span class="hidden-sm" translate="global.menu.amelioration.main">
+                                Améliorations des services
+                            </span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="propositions" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>
+                                <span translate="global.menu.amelioration.propositions">Proposition</span>
+                            </a>
+                        </li>
+                        <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                    </ul>
+                </li>
+
+                <li ng-class="{active: vm.$state.includes('documentation')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="documentation-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-education"></span>
+                            <span class="hidden-sm" translate="global.menu.documentation.main">
+                                Documentation
+                            </span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="cours" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>
+                                <span translate="global.menu.documentation.cours">Cours</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="formations" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>
+                                <span translate="global.menu.documentation.formations">Formations</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="exposé" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>
+                                <span translate="global.menu.documentation.exposé">Exposé</span>
+                            </a>
+                        </li>
+                        <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                    </ul>
+                </li>
+
                 <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
                 <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">

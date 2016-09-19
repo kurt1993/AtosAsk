@@ -1,0 +1,17 @@
+{
+    "askAtosApp": {
+        "questions" : {
+            "home": {
+                "title": "Questions",
+                "createLabel": "Créer un nouveau Ask",
+                "search": "Recherche une Question"
+            },
+            "detail": {
+                "titre": "Questions"
+            },
+            "titre": "Titre",
+            "contenue": "Contenue",
+            "tags": "Tags"
+        }
+    }
+}

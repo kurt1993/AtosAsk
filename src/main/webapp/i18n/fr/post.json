@@ -1,0 +1,15 @@
+{
+    "askAtosApp": {
+        "post" : {
+            "home": {
+                "title": "Poser votre question"
+            },
+            "detail": {
+                "title": "Questions"
+            },
+            "titre": "Titre",
+            "contenue": "Contenue",
+            "tags": "Tags"
+        }
+    }
+}

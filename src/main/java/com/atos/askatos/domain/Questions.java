@@ -34,6 +34,18 @@ public class Questions implements Serializable{
     @Field("tags")
     private String tags;
 
+    @Field("like")
+    private Integer like;
+
+    @Field("dislike")
+    private Integer dislike;
+
+    @Field("response")
+    private Integer response;
+
+    @Field("resolve")
+    private String resolve;
+
 
 
     public String getId(){
@@ -63,6 +75,36 @@ public class Questions implements Serializable{
     public void setTags(String tags){
         this.tags = tags;
     }
+
+    public Integer getLike(){
+        return like;
+    }
+    public void setLike(Integer like){
+        this.like = like;
+    }
+
+    public Integer getDislike(){
+        return dislike;
+    }
+    public void setDislike(Integer dislike) {
+        this.dislike = dislike;
+    }
+    public Integer getResponse(){
+        return response;
+    }
+    public void setResponse(Integer response){
+        this.response = response;
+    }
+
+    public String getResolve(){
+        return resolve;
+    }
+    public  void setResolve(String resolve){
+        this.resolve = resolve;
+    }
+
+
+
                 //A voir !!
 
     @Override
@@ -94,7 +136,11 @@ public class Questions implements Serializable{
             ", titre='" + titre + "'" +
             ", contenue='" + contenue + "'" +
             ", tags='" + tags + "'" +
+            ", like='" + like + "'" +
+            ", dislike='" + dislike + "'" +
+            ", response='" + response + "'" +
+            ", resolve='" + resolve + "'" +
             '}';
     }
+    }
 
-}

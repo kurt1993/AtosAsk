@@ -4,8 +4,21 @@
         "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
         "menu": {
             "home": "Home",
-            "questions": "Questions",
-            "post": "Post",
+            "forum": {
+                "main": "Forum",
+                "questions": "Questions",
+                "post": "Ask questions"
+            },
+            "amelioration": {
+                "main": "Improving services",
+                "propositions": "Suggestion"
+            },
+            "documentation": {
+                "main": "Documentation",
+                "cours": "Lecture",
+                "formations": "Formations",
+                "exposé": "Subject"
+            },
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",

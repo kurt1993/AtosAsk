@@ -7,6 +7,7 @@
     function Questions($resource) {
         return $resource('api/questions/:id', {}, {
             'query': { method: 'GET', isArray: true},
+
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
@@ -16,7 +17,8 @@
                     return data;
                 }
             },
-            'update': { method:'PUT' }
+            'update': { method:'PUT' },
+            'create' : {method: 'POST'}
         });
     }
 })();

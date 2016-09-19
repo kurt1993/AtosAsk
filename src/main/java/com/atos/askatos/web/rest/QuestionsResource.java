@@ -44,7 +44,7 @@ public class QuestionsResource {
     public ResponseEntity<Questions> createQuestions(@Valid @RequestBody Questions questions) throws URISyntaxException {
         log.debug("REST request to save Questions : {}", questions);
         if (questions.getId() != null){
-            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("Questions", "idexists", "A new questions cannot already have an ID")).body(null);
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("questions", "idexists", "A new questions cannot already have an ID")).body(null);
         }
             Questions result = questionsRepository.save(questions);
             return ResponseEntity.created(new URI("/api/questions/" + result.getId()))

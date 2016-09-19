@@ -6,7 +6,7 @@
     function configRoutes($stateProvider) {
         $stateProvider
             .state('questions', {
-            parent: 'entity',
+            parent: 'forum',
             url: '/questions?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
@@ -14,7 +14,7 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/questions/questions.html',
+                    templateUrl: 'app/Forum/questions/questions.html',
                     controller: 'QuestionsController',
                     controllerAs: 'vm'
                 }
@@ -41,38 +41,34 @@
                     };
                 }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('ask');
+                    $translatePartialLoader.addPart('questions');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
             }
 
         })
-            .state('questionsview', {
-                parent: 'entity',
-                url: '/questions/{id}',
+            .state('post', {
+                parent: 'forum',
+                url: '/post',
                 data: {
-                    authorities: ['ROLE_USER'],
-                    pageTitle: 'askAtosApp.ask.detail.title'
+                    authorities: ['ROLE_USER']
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'app/questions/questionsview.html',
-                        controller: 'QuestionsViewController',
+                        templateUrl: 'app/Forum/questions/post.html',
+                        controller: 'PostController',
                         controllerAs: 'vm'
                     }
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('ask');
+                        $translatePartialLoader.addPart('post');
                         return $translate.refresh();
-                    }],
-                    entity: ['$stateParams', 'Ask', function($stateParams, Ask) {
-                        return Ask.get({id : $stateParams.id}).$promise;
                     }],
                     previousState: ["$state", function ($state) {
                         var currentStateData = {
-                            name: $state.current.name || 'ask',
+                            name: $state.current.name || 'post',
                             params: $state.params,
                             url: $state.href($state.current.name, $state.params)
                         };
@@ -80,31 +76,31 @@
                     }]
                 }
             })
-
-            .state('questions.new', {
-                parent: 'questions',
-                url: '/new',
+            .state('questionsview', {
+                parent: 'forum',
+                url: '/questions/{id}',
                 data: {
-                    authorities: ['ROLE_ADMIN']
+                    authorities: ['ROLE_USER'],
+                    pageTitle: 'askAtosApp.questions.detail.title'
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'app/questions/post.html',
-                        controller: 'QuestionsController',
+                        templateUrl: 'app/Forum/questions/questionsview.html',
+                        controller: 'QuestionsViewController',
                         controllerAs: 'vm'
                     }
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('ask');
+                        $translatePartialLoader.addPart('questions');
                         return $translate.refresh();
                     }],
-                    entity: ['$stateParams', 'Ask', function($stateParams, Ask) {
-                        return Ask.get({id : $stateParams.id}).$promise;
+                    forum: ['$stateParams', 'Questions', function($stateParams, Questions) {
+                        return Questions.get({id : $stateParams.id}).$promise;
                     }],
                     previousState: ["$state", function ($state) {
                         var currentStateData = {
-                            name: $state.current.name || 'ask',
+                            name: $state.current.name || 'questions',
                             params: $state.params,
                             url: $state.href($state.current.name, $state.params)
                         };

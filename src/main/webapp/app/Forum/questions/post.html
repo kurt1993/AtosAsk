@@ -1,8 +1,8 @@
-<form name="add" role="form" novalidate ng-submit="vm.save()" show-validation>
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 <div>
     <div class="form-group">
         <label class="control-label" for="titre">Titre</label>
-        <input type="text" class="form-group" name="titre" id="titre"
+        <input type="text" class="form-control" name="titre" id="titre"
         ng.model="vm.questions.titre"/>
         <div ng-show="editForm.titre.$invalid">
             <p class="help-block"
@@ -13,7 +13,8 @@
     </div>
     <div class="form-group">
         <label class="control-label" for="contenue">Contenue</label>
-        <textarea froala  name="contenue" id="contenue"
+        <br>
+        <textarea froala name="contenue" id="contenue"
                   ng-model="vm.questions.contenue"
         ></textarea>
     </div>

@@ -8,18 +8,26 @@
             <md-tab label="Les plus récents">
                 <md-content class="md-padding">
         <md-list flex ng-repeat="question in vm.questions">
-            <md-list-item  flex flex-gt-xs="100" class="md-2-line"  ng-click="null">
-                <div class="md-list-item-text">
+            <a ng-href="#/questions/{{question.id}}" style="text-decoration: none;">
+                <md-list-item  flex flex-gt-xs="100" class="md-2-line"  ng-click="null">
+                    <div class="md-list-item-text">
 
-                    <h3 style="font-weight: bold">{{question.titre}}</h3>
-                    <h4>{{question.contenue}}</h4>
+                        <h3 style="font-weight: bold">{{question.titre}}</h3>
+                        <h4>{{question.contenue}}</h4>
 
-                </div>
-            </md-list-item>
+                    </div>
+                </md-list-item>
+            </a>
             <div>
                 <ul class="tags">
                     <a href="" class="tag">{{question.tags}}</a>
                 </ul>
+
+                    <span md-colors="{background: 'Pink-A400'}" style="font-weight:bold">  Like : {{question.like}}</span>
+                    <span md-colors="{background: 'Lime-A400'}" style="font-weight:bold">  Dislike : {{question.dislike}}</span>
+                    <span md-colors="{background: 'blue-500'}" style="font-weight:bold">  Réponse : {{question.response}}</span>
+                    <span md-colors="{background: 'orange-500'}" style="font-weight:bold">  Résolue : {{question.resolve}}</span>
+
             </div>
             <md-divider md-colors="{background: 'teal-A700'}"></md-divider>
 
@@ -37,6 +45,7 @@
                     <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
                     <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
                 </md-content>
+
             </md-tab>
 
             <md-tab label="Urgents">

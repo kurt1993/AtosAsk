@@ -76,6 +76,36 @@
                     }]
                 }
             })
+
+            .state('modif', {
+                parent: 'forum',
+                url: '/modif',
+                data: {
+                    authorities: ['ROLE_ADMIN']
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/Forum/questions/modif.html',
+                        controller: 'ModifController',
+                        controllerAs: 'vm'
+                    }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('modif');
+                        return $translate.refresh();
+                    }],
+                    previousState: ["$state", function ($state) {
+                        var currentStateData = {
+                            name: $state.current.name || 'modif',
+                            params: $state.params,
+                            url: $state.href($state.current.name, $state.params)
+                        };
+                        return currentStateData;
+                    }]
+                }
+            })
+
             .state('questionsview', {
                 parent: 'forum',
                 url: '/questions/{id}',
@@ -108,5 +138,6 @@
                     }]
                 }
             })
+
     }
 })();

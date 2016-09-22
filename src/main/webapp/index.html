@@ -52,13 +52,65 @@
         <!-- Angular views -->
     </div>
 
-    <div class="footer" ng-cloak>
-        <p translate="footer">This is your footer</p>
+
+</div>
+
+<div ng-cloak>
+    <div>
+        <footer style="position: fixed;bottom: 0px" class="footer" md-colors="{background: 'grey-200'}">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5 class="orange-text" style="font-weight: bold">AskAtos</h5>
+                        <p class="grey-text text-lighten-4">
+                            L’ESTM est une école d’Ingénieurs et de Spécialistes du Management à la pointe des dernières technologies, s’appuyant sur un corps professoral très expérimenté émanant de structures universitaires et professionnelles de haut niveau.
+                        </p>
+
+
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="orange-text" style="font-weight: bold">Paramètres</h5>
+                        <ul>
+                            <li><a class="white-text" href="Accueil.php" style="font-size: 16px">Accueil</a></li>
+                            <li><a class="white-text" href="GererMemoires.php" style="font-size: 16px">Forum</a></li>
+                            <li><a class="white-text" href="Memoire.php" style="font-size: 16px">Améliorations des services</a></li>
+                            <li><a class="white-text" href="Parametre.php" style="font-size: 16px">Documentation</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="orange-text" style="font-weight: bold">Suivez nous</h5>
+                        <ul>
+                            <a href="" style="margin-left:-30px"><i class="fa fa-facebook-official fa-3x" style="color: #3b5998" aria-hidden="true"></i></a>
+
+                            <a href="" style="margin-left: 10px"><i class="fa fa-twitter fa-3x" style="color: #00aced" aria-hidden="true"></i></a>
+
+                            <a href="" style="margin-left: 10px"><i class="fa fa-linkedin fa-3x" style="color: #0077B5" aria-hidden="true"></i></a>
+
+                            <a href="" style="margin-left: 10px"><i class="fa fa-google-plus-official fa-3x" style="color: #d62d20" aria-hidden="true"></i></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container" style="font-weight: bold">
+                    Fait par
+                    <a class="orange-text text-lighten-3" href="https://www.facebook.com/nkayilou.kayel?ref=ts&fref=ts">
+                        Kayel Nkayilou
+                    </a>
+                </div>
+            </div>
+        </footer>
     </div>
 </div>
-<script>
 
+<script>
+    (function() {
+        ('.selector').froalaEditor({
+            height: 500
+        });
+    })();
 </script>
+
 <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
 <script>
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -162,7 +214,8 @@
 <script src="app/Forum/questions/questions.state.js"></script>
 <script src="app/Forum/questions/questions.service.js"></script>
 <script src="app/Forum/questions/questions.controller.js"></script>
-<script src="app/Forum/questions/postcontroller.js"></script>
+<script src="app/Forum/questions/post.controller.js"></script>
+<script src="app/Forum/questions/modif.controller.js"></script>
 <script src="app/Forum/forum.state.js"></script>
 <script src="app/entities/tags/tags-dialog.controller.js"></script>
 <script src="app/entities/tags/tags-detail.controller.js"></script>
@@ -259,7 +312,6 @@
 <script src="app/account/account.state.js"></script>
 <!-- endinject -->
 <!-- endbuild -->
-
 
 
 </body>

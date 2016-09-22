@@ -1,16 +1,48 @@
 <div>
-    <dl class="dl-horizontal jh-entity-details">
-        <dt><span>Titre</span></dt>
-        <dd>
-            <span>{{vm.questions.titre}}</span>
-        </dd>
-        <dt><span>Contenue</span></dt>
-        <dd>
-            <span>{{vm.questions.contenue}}</span>
-        </dd>
-        <dt><span>Tags</span></dt>
-        <dd>
-            <span>{{vm.questions.tags}}</span>
-        </dd>
-    </dl>
+    <md-toolbar md-colors="{background: 'cyan-900'}">
+        <div class="md-toolbar-tools" align="center" >
+            <dt><span>Titre: </span></dt><dd><span class="md-flex"> {{vm.questions.titre}}</span></dd>
+        </div>
+    </md-toolbar>
+</div>
+<div class="row">
+    <div class="col-md-8">
+<div align="justify" style="margin-top: 3%;font-size: 14px">
+<span>{{vm.questions.contenue}}</span>
+
+    <md-chips>
+        <md-chip style="font-weight: bold" md-colors="{background: ''}"><a href="/app/entities/tags/tags.html" style="color: #0A0A0A">
+            {{vm.questions.tags}}
+        </a>
+        </md-chip>
+    </md-chips>
+    <div>
+        <md-button class="md-icon-button md-accent" aria-label="Favorite">
+            <i class="fa fa-heart fa-2x" aria-hidden="true" style="color: darkred"></i>
+        </md-button>
+    </div>
+</div>
+    </div>
+    <div class="col-md-4" style="margin-top: 1%">
+        <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>
+            <div md-colors="{background: 'teal-500'}" class="padded" md-whiteframe="1"
+                 flex="100" layout layout-align="center center">
+                <div>
+                <span style="font-weight: bold;font-size: 15px;margin-right: 500%">Détails</span>
+                <p>
+                    <i class="fa fa-clock-o fa-2x" aria-hidden="true"> : </i>
+                    <br>
+                    <i class="fa fa-heart-o fa-2x" aria-hidden="true"> : {{vm.questions.like}} </i>
+                    <br>
+                    <i class="fa fa-check-square-o fa-2x" aria-hidden="true"> : {{vm.questions.resolve}} </i>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+
+</div>
 </div>

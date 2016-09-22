@@ -1,43 +1,107 @@
+<md-toolbar md-colors="{background: 'cyan-900'}">
+    <div class="md-toolbar-tools" align="center" >
+        <h2 class="md-flex">Poser votre question</h2>
+    </div>
+</md-toolbar>
+
+<div style="margin-top: 5%">
+<div class="row">
+    <div class="col-md-8">
+
 <form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 <div>
-    <div class="form-group">
-        <label class="control-label" for="titre">Titre</label>
-        <input type="text" class="form-control" name="titre" id="titre"
-        ng.model="vm.questions.titre"/>
-        <div ng-show="editForm.titre.$invalid">
-            <p class="help-block"
-               ng-show="editForm.title.$error.required" translate="entity.validation.required">
-                This field is required.
-            </p>
-        </div>
+
+    <div>
+        <md-content class="md-no-momentum">
+            <md-input-container class="md-icon-float md-block">
+                <!-- Use floating label instead of placeholder -->
+                <label for="titre">Titre</label>
+                <input name="titre" id="titre" ng.model="vm.questions.titre" type="text" placeholder="Quel est votre question?">
+                <div ng-show="editForm.titre.$invalid">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+        </md-content>
     </div>
+
     <div class="form-group">
-        <label class="control-label" for="contenue">Contenue</label>
-        <br>
+
         <textarea froala name="contenue" id="contenue"
                   ng-model="vm.questions.contenue"
         ></textarea>
     </div>
-    <div class="form-group">
-        <label class="control-label" for="tags">Tags</label>
-        <input type="text" class="form-control" name="tags" id="tags"
-               ng-model="vm.questions.tags"/>
-        <div ng-show="editForm.tags.$invalid">
-            <p class="help-block"
-               ng-show="editForm.tags.$error.required" translate="entity.validation.required">
-                This field is required.
-            </p>
-        </div>
+
+    <hr>
+
+    <div>
+        <div class="form-group">
+            <label class="control-label" for="contenue">Aperçu</label>
+        <span froala-view="vm.questions.contenue">{{vm.questions.contenue}}</span>
     </div>
+    </div>
+
+    <hr>
+
+    <div>
+        <md-content class="md-no-momentum">
+            <md-input-container class="md-icon-float md-block">
+                <!-- Use floating label instead of placeholder -->
+                <label for="tags">Tags</label>
+                <input name="tags" id="tags" ng.model="vm.questions.tags" type="text" placeholder="Taguer votre question. 5 tags maximum">
+                <div ng-show="editForm.tags.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.tags.$error.required" translate="entity.validation.required">
+                        This field is required.
+                    </p>
+                </div>
+            </md-input-container>
+        </md-content>
+    </div>
+
 </div>
 
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default" ng-click="vm.clear()">
+        <md-button type="reset" class="md-raised" md-colors="{background: 'red-500'}">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
-        </button>
-        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+        </md-button>
+        <md-button type="reset" class="md-raised" md-colors="{background: 'green-500'}" type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Poster la question</span>
-        </button>
-    </div>
+        </md-button>
 
 </form>
+
+    </div>
+    <div style="margin-top: 3%">
+    <div class="col-md-4">
+        <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>
+            <div md-colors="{background: 'teal-500'}" class="padded" md-whiteframe="1"   flex="100" layout layout-align="center center">
+                <span style="font-weight: bold;font-size: 15px">Comment poser sa question</span>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>
+            <div md-colors="{background: 'red-500'}" class="padded" md-whiteframe="1"   flex="100" layout layout-align="center center">
+                <div>
+                    <ul>
+                        <li style="font-size: 13px">Repartez a la ligne après chaque paragraphe</li>
+                        <br>
+                        <li>Une fois a la ligne espacé deux fois avant de commencer le paragraphe</li>
+                        <br>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>
+            <div md-colors="{background: 'cyan-500'}" class="padded" md-whiteframe="1"   flex="100" layout layout-align="center center">
+                <span>    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+            </div>
+        </div>
+</div></div>
+</div>
+</div>

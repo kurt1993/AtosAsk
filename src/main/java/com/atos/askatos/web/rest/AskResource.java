@@ -21,6 +21,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+import java.util.Date;
 
 /**
  * REST controller for managing Ask.
@@ -30,10 +31,10 @@ import java.util.Optional;
 public class AskResource {
 
     private final Logger log = LoggerFactory.getLogger(AskResource.class);
-        
+
     @Inject
     private AskRepository askRepository;
-    
+
     /**
      * POST  /asks : Create a new ask.
      *
@@ -94,7 +95,7 @@ public class AskResource {
     public ResponseEntity<List<Ask>> getAllAsks(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Asks");
-        Page<Ask> page = askRepository.findAll(pageable); 
+        Page<Ask> page = askRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/asks");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

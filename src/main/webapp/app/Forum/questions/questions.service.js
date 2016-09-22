@@ -17,8 +17,7 @@
                     return data;
                 }
             },
-            'update': { method:'PUT' },
-            'create' : {method: 'POST'}
+            'update': { method:'PUT' }
         });
     }
 })();
